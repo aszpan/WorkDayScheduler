@@ -14,4 +14,4 @@ The purpose of this Work Day Scheduler is to allows a user to save events for ea
 
 
 ## Photo of Deployed Site:
-![alt text: Main page of Work Day Scheduler](/main.png)
+![alt text: Main page of Work Day Scheduler](./assets/images/main.png)
