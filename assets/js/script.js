@@ -17,11 +17,14 @@ function displayTime() {
 }
 
 function timeBlockTracker() {
-  //get current hour number (military time)
+  //get current hour number (military time) for our if statement
   var currentHour = moment().hour();
 
-  // loop over time blocks using the class time block to iterate over each instance
+  //.time-block references the class used on each hours div
+  // loop over time blocks class for each instance
   $(".time-block").each(function () {
+    //refers to the block hour using div id, split, and parseint
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt 
     var blockHour = parseInt($(this).attr("id").split("hour")[1]);
     console.log(blockHour, currentHour);
 
@@ -47,10 +50,8 @@ function timeBlockTracker() {
 }
 
 $(".saveBtn").on("click", function () {
-  //get nearby values.
-  console.log(this);
-  var text = $(this).siblings(".description").val();
   var time = $(this).parent().attr("id");
+  var text = $(this).siblings(".description").val();
 
   //set items in local storage.
   localStorage.setItem(time, text);
