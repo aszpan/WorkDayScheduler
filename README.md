@@ -12,4 +12,4 @@ The purpose of this Work Day Scheduler is to
 
 
 ## Photo of Deployed Site:
-![alt text: Before Generate Password is clicked](/assets/images/website-before-generatepassword.png)
+![alt text: Main page of Work Day Scheduler](/main.png)
