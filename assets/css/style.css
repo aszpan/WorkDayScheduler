@@ -1,7 +1,8 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1;
+  background-color: #b2c1cf;
 }
 
 textarea {
@@ -21,25 +22,31 @@ textarea {
   border-bottom: 10px solid black;
 }
 
+
+
 .description {
   white-space: pre-wrap;
 }
 
 .time-block {
   text-align: center;
-  border-radius: 15px;
+  border-radius: 18px;
 }
 
 .row {
   white-space: pre-wrap;
-  height: 80px;
+  height: 90px;
   border-top: 1px solid white;
+  box-shadow: 8px 8px 8px 8px #969696;
 }
 
 .hour {
-  background-color: #ffffff;
+  background-color: #06aed5;
   color: #000000;
   border-top: 1px dashed #000000;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  padding: 25px;
 }
 
 .past {
@@ -59,8 +66,9 @@ textarea {
 
 .saveBtn {
   border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  border-top: 1px dashed #000000;
   background-color: #06aed5;
   color: white;
 }
