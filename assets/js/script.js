@@ -49,6 +49,7 @@ function timeBlockTracker() {
   });
 }
 
+//event listener to set local storage/save on click
 $(".saveBtn").on("click", function () {
   var hourNumber = $(this).parent().attr("id");
   var userTask = $(this).siblings(".description").val();
