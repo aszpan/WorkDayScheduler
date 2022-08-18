@@ -1,32 +1,32 @@
 /* 
 1.) Display current date using moment.js
-2.) Add time blocks (HTML)
-3.) Color code time blocks as past/present/future (if statement, add or remove class)
-4.) When clicking in time block, can enter event (textarea)
+2.) Add hourNumber blocks (HTML)
+3.) Color code hourNumber blocks as past/present/future (if statement, add or remove class)
+4.) When clicking in hourNumber block, can enter event (userTaskarea)
 5.) Once event is entered, should save to local storage
 6.) Upon refresh, saved event persists
 */
 
 // variables
-var timeDisplayEl = $("#time-display");
+var hourNumberDisplayEl = $("#hourNumber-display");
 var savedEvents = JSON.parse(localStorage.getItem("savedUserEvents")) || []
 
 var userEvent = document.querySelector(".description");
 console.log('Saved events are', savedEvents);
 
-// handle displaying the time
-function displayTime() {
+// handle displaying the hourNumber
+function displayhourNumber() {
   var rightNow = moment().format("MMMM Do, YYYY");
-  timeDisplayEl.text(rightNow);
+  hourNumberDisplayEl.userTask(rightNow);
 }
 
-function timeBlockTracker() {
-  //get current hour number (military time) for our if statement
+function hourNumberBlockTracker() {
+  //get current hour number (military hourNumber) for our if statement
   var currentHour = moment().hour();
 
-  //.time-block references the class used on each hours div
-  // loop over time blocks class for each instance
-  $(".time-block").each(function () {
+  //.hourNumber-block references the class used on each hours div
+  // loop over hourNumber blocks class for each instance
+  $(".hourNumber-block").each(function () {
     //refers to the block hour using div id, split, and parseint
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt 
     var scheduleHour = parseInt($(this).attr("id").split("hour")[1]);
@@ -48,11 +48,11 @@ function timeBlockTracker() {
 }
 
 $(".saveBtn").on("click", function () {
-  var time = $(this).parent().attr("id");
-  var text = $(this).siblings(".description").val();
+  var hourNumber = $(this).parent().attr("id");
+  var userTask = $(this).siblings(".description").val();
 
   //set items in local storage as key/value pair
-  localStorage.setItem(time, JSON.stringify(text));
+  localStorage.setItem(hourNumber, JSON.stringify(userTask));
 });
 
 //load any saved data from LocalStorage - do this for each hour created.
@@ -70,5 +70,5 @@ $("#hour17 .description").val(localStorage.getItem("hour17"));
 $("#hour18 .description").val(localStorage.getItem("hour18"));
 $("#hour19 .description").val(localStorage.getItem("hour19")); 
 
-timeBlockTracker();
-displayTime();
+hourNumberBlockTracker();
+displayhourNumber();
