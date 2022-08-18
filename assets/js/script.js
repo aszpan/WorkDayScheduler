@@ -8,25 +8,27 @@
 */
 
 // variables
-var hourNumberDisplayEl = $("#hourNumber-display");
-var savedEvents = JSON.parse(localStorage.getItem("savedUserEvents")) || []
-
+var timeDisplayEl = $("#time-display");
 var userEvent = document.querySelector(".description");
-console.log('Saved events are', savedEvents);
 
-// handle displaying the hourNumber
-function displayhourNumber() {
-  var rightNow = moment().format("MMMM Do, YYYY");
-  hourNumberDisplayEl.userTask(rightNow);
+//to view local storage for testing purposes
+for (i = 0; i < localStorage.length; i++)   {
+  console.log(localStorage.key(i) + " = " + localStorage.getItem(localStorage.key(i)));
 }
 
-function hourNumberBlockTracker() {
+// handle displaying the hourNumber
+function displayTime() {
+  var rightNow = moment().format("MMMM Do, YYYY");
+  timeDisplayEl.text(rightNow);
+}
+
+function timeBlockTracker() {
   //get current hour number (military hourNumber) for our if statement
   var currentHour = moment().hour();
 
   //.hourNumber-block references the class used on each hours div
   // loop over hourNumber blocks class for each instance
-  $(".hourNumber-block").each(function () {
+  $(".time-block").each(function () {
     //refers to the block hour using div id, split, and parseint
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt 
     var scheduleHour = parseInt($(this).attr("id").split("hour")[1]);
@@ -52,7 +54,7 @@ $(".saveBtn").on("click", function () {
   var userTask = $(this).siblings(".description").val();
 
   //set items in local storage as key/value pair
-  localStorage.setItem(hourNumber, JSON.stringify(userTask));
+  localStorage.setItem(hourNumber, userTask);
 });
 
 //load any saved data from LocalStorage - do this for each hour created.
@@ -70,5 +72,5 @@ $("#hour17 .description").val(localStorage.getItem("hour17"));
 $("#hour18 .description").val(localStorage.getItem("hour18"));
 $("#hour19 .description").val(localStorage.getItem("hour19")); 
 
-hourNumberBlockTracker();
-displayhourNumber();
+timeBlockTracker();
+displayTime();
